@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My messages!</string>
+    <string name="enter_message">Enter a message:</string>
+    <string name="send_message">Send message</string>
+    <string name="send_message_via">Send a message via …</string>
+    <string name="do_select">Do select</string>
+
+    <string name="animals_crow">Crow</string>
+    <string name="animals_god">Dog</string>
+    <string name="animals_cat">Cat</string>
+</resources>

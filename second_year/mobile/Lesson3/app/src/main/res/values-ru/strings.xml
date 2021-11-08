@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Мой мессенджер!</string>
+    <string name="enter_message">Введите сообщение:</string>
+    <string name="send_message">Отправить сообщение</string>
+    <string name="send_message_via">Отправить сообщение через…</string>
+    <string name="do_select">Выбрать</string>
+
+    <string name="animals_crow">Ворона</string>
+    <string name="animals_god">Собака</string>
+    <string name="animals_cat">Кот</string>
+</resources>
