@@ -1,13 +1,12 @@
 package ru.danil42russia.lesson2
 
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             val beerType = spinner.selectedItem.toString()
             val beerNames = beerList[beerType]
 
-            text.text = beerNames!!.joinToString("\n")
+            text.text = beerNames?.joinToString("\n")
         }
     }
 
