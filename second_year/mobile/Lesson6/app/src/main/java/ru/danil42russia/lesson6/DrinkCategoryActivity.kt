@@ -12,7 +12,11 @@ class DrinkCategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drink_category)
 
-        val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, DrinkDao.DRINKS)
+        val listAdapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1,
+            DrinkDao.DRINKS
+        )
 
         val listDrinks = findViewById<ListView>(R.id.list_drinks)
 
