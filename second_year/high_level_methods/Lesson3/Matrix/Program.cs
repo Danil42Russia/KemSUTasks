@@ -14,11 +14,11 @@ namespace Matrix
             };
 
             var m1 = new Matrix(d1);
-            
+
             m1.Inverse();
             Console.WriteLine(m1);
             var m2 = m1.Clone();
-            
+
             m1.Transpose();
             Console.WriteLine(m1);
 
@@ -27,7 +27,7 @@ namespace Matrix
 
             m1 *= m2;
             Console.WriteLine(m1);
-            
+
             m1 -= m2;
             Console.WriteLine(m1);
         }

@@ -211,7 +211,7 @@ namespace MatrixTests
             double[,] d1 =
             {
                 { 5, 0 },
-                { 3, 4 },
+                { 3, 4 }
             };
             var m1 = new Matrix.Matrix(d1);
             var m2 = new Matrix.Matrix(d1);
@@ -225,14 +225,14 @@ namespace MatrixTests
             double[,] d1 =
             {
                 { 5, 0 },
-                { 3, 4 },
+                { 3, 4 }
             };
             var m1 = new Matrix.Matrix(d1);
 
             double[,] d2 =
             {
                 { 5, 3 },
-                { 0, 4 },
+                { 0, 4 }
             };
             var m2 = new Matrix.Matrix(d2);
 
@@ -265,7 +265,7 @@ namespace MatrixTests
                 {
                     { 1, -2, 3 },
                     { 0, 7, 4 },
-                    { 5, 3, -3 },
+                    { 5, 3, -3 }
                 },
                 -178
             },
@@ -276,7 +276,7 @@ namespace MatrixTests
                     { -2, 2, 1, 0 },
                     { 1, -3, 3, 7 },
                     { 2, -1, 2, -3 },
-                    { -5, 4, -1, 2 },
+                    { -5, 4, -1, 2 }
                 },
                 -18
             }
@@ -314,7 +314,7 @@ namespace MatrixTests
             {
                 { 1, 2, 3 },
                 { 4, 5, 6 },
-                { 7, 8, 9 },
+                { 7, 8, 9 }
             };
             var m1 = new Matrix.Matrix(dataExpectedD);
             var expected = m1.Minor(coords.Item1, coords.Item2);
@@ -356,7 +356,7 @@ namespace MatrixTests
                 { 3, 2, -2 }
             };
             var matrix = new Matrix.Matrix(d1);
-            
+
             Assert.True(matrix.IsSquare());
         }
     }
