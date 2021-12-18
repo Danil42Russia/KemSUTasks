@@ -1,0 +1,12 @@
+.idea
+__history/
+__recovery/
+[Ww]in32/
+[Ww]in64/
+*.dcu
+*.exe
+*.local
+*.identcache
+*.res
+*.tvsconfig
+*.vlb
