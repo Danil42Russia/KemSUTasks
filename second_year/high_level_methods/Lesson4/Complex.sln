@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complex", "Complex\Complex.csproj", "{F267B19D-D9DE-4F34-A414-D81E0C3B44E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplexTests", "ComplexTests\ComplexTests.csproj", "{002B2FEB-4BAD-4325-AA17-FA3D4230B65D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F267B19D-D9DE-4F34-A414-D81E0C3B44E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F267B19D-D9DE-4F34-A414-D81E0C3B44E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F267B19D-D9DE-4F34-A414-D81E0C3B44E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F267B19D-D9DE-4F34-A414-D81E0C3B44E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{002B2FEB-4BAD-4325-AA17-FA3D4230B65D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002B2FEB-4BAD-4325-AA17-FA3D4230B65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002B2FEB-4BAD-4325-AA17-FA3D4230B65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{002B2FEB-4BAD-4325-AA17-FA3D4230B65D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
