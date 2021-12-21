@@ -1,10 +1,23 @@
-.idea
+# IDE
+.idea/
+.vs/
+out/
+*.iml
+*.user
+
+# C Sharp
+[Oo]bj/
+[Bb]in/
+
+# Java
+*.class
+
+# Delphi
 __history/
 __recovery/
 [Ww]in32/
 [Ww]in64/
 *.dcu
-*.exe
 *.local
 *.identcache
 *.res
