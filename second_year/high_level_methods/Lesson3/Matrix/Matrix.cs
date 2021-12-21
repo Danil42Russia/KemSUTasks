@@ -1,248 +1,243 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
-namespace Matrix
+namespace Matrix;
+
+public class Matrix
 {
-    public class Matrix
+    private double[,] _matrix;
+    private int _cols;
+    private int _rows;
+
+    public Matrix(double[,] matrix)
     {
-        private double[,] _matrix;
-        private int _cols;
-        private int _rows;
+        _matrix = matrix;
 
-        public Matrix(double[,] matrix)
+        _rows = matrix.GetUpperBound(0) + 1;
+        _cols = matrix.GetUpperBound(1) + 1;
+    }
+
+    public Matrix Clone()
+    {
+        return new Matrix((double[,])_matrix.Clone());
+    }
+
+    public bool IsSquare()
+    {
+        return _rows == _cols;
+    }
+
+    public void Transpose()
+    {
+        var m3 = new double[_cols, _rows];
+
+        for (var i = 0; i < _rows; i++)
+        for (var j = 0; j < _cols; j++)
         {
-            _matrix = matrix;
-
-            _rows = matrix.GetUpperBound(0) + 1;
-            _cols = matrix.GetUpperBound(1) + 1;
+            m3[j, i] = _matrix[i, j];
         }
 
-        public Matrix Clone()
-        {
-            return new Matrix((double[,])_matrix.Clone());
-        }
+        (_cols, _rows) = (_rows, _cols);
+        _matrix = m3;
+    }
 
-        public bool IsSquare()
-        {
-            return _rows == _cols;
-        }
+    public Matrix Minor(int row, int column)
+    {
+        if (row > _rows || column > _cols)
+            throw new Exception("Строка или столбец не принадлежат матрице");
 
-        public void Transpose()
-        {
-            var m3 = new double[_cols, _rows];
+        var dataTmp = new double[_rows - 1, _cols - 1];
 
-            for (var i = 0; i < _rows; i++)
-            for (var j = 0; j < _cols; j++)
+        int offsetX = 0;
+        for (int i = 0; i < _rows; i++)
+        {
+            int offsetY = 0;
+            if (i == row)
             {
-                m3[j, i] = _matrix[i, j];
+                offsetX++;
+                continue;
             }
 
-            (_cols, _rows) = (_rows, _cols);
-            _matrix = m3;
-        }
-
-        public Matrix Minor(int row, int column)
-        {
-            if (row > _rows || column > _cols)
-                throw new Exception("Строка или столбец не принадлежат матрице");
-
-            var dataTmp = new double[_rows - 1, _cols - 1];
-
-            int offsetX = 0;
-            for (int i = 0; i < _rows; i++)
+            for (int t = 0; t < _cols; t++)
             {
-                int offsetY = 0;
-                if (i == row)
+                if (t == column)
                 {
-                    offsetX++;
+                    offsetY++;
                     continue;
                 }
 
-                for (int t = 0; t < _cols; t++)
-                {
-                    if (t == column)
-                    {
-                        offsetY++;
-                        continue;
-                    }
-
-                    dataTmp[i - offsetX, t - offsetY] = _matrix[i, t];
-                }
+                dataTmp[i - offsetX, t - offsetY] = _matrix[i, t];
             }
-
-            return new Matrix(dataTmp);
         }
 
-        public double Determinant()
+        return new Matrix(dataTmp);
+    }
+
+    public double Determinant()
+    {
+        if (!IsSquare())
+            throw new Exception("Матрица должна быть квадратной");
+
+        if (_rows == 2)
+            return _matrix[0, 0] * _matrix[1, 1] - _matrix[0, 1] * _matrix[1, 0];
+
+        double result = 0;
+        var j = 0;
+        for (int i = 0; i < _rows; i++)
         {
-            if (!IsSquare())
-                throw new Exception("Матрица должна быть квадратной");
+            var sign = (i + 1) % 2 == (j + 1) % 2 ? 1 : -1;
 
-            if (_rows == 2)
-                return _matrix[0, 0] * _matrix[1, 1] - _matrix[0, 1] * _matrix[1, 0];
+            result += sign * _matrix[i, j] * Minor(i, j).Determinant();
+        }
 
-            double result = 0;
-            var j = 0;
-            for (int i = 0; i < _rows; i++)
+        return result;
+    }
+
+    public void Inverse()
+    {
+        if (!IsSquare())
+            throw new Exception("Обратная матрица существует только для квадратных матриц");
+
+        var matrix = Clone();
+
+        var determinant = Determinant();
+        if (determinant == 0)
+            return;
+
+        for (int i = 0; i < _rows; i++)
+        {
+            for (int j = 0; j < _cols; j++)
             {
-                var sign = (i + 1) % 2 == (j + 1) % 2 ? 1 : -1;
+                var tmp = matrix.Minor(i, j);
 
-                result += sign * _matrix[i, j] * Minor(i, j).Determinant();
+                var detMinor = tmp.Determinant();
+                var pow = Math.Pow(-1, i + 1 + j + 1);
+
+                _matrix[j, i] = 1 / determinant * detMinor * pow;
             }
+        }
+    }
 
-            return result;
+    public Tuple<int, int> Shape()
+    {
+        return new Tuple<int, int>(_rows, _cols);
+    }
+
+    public static Matrix operator *(Matrix m1, Matrix m2)
+    {
+        if (m1._cols != m2._rows)
+        {
+            throw new Exception(
+                "Умножение не возможно. Количество столбцов первой матрицы не равно количеству строк второй матрицы.");
         }
 
-        public void Inverse()
+        var m3 = new double[m1._rows, m2._cols];
+
+        for (var i = 0; i < m1._rows; i++)
+        for (var j = 0; j < m2._cols; j++)
         {
-            if (!IsSquare())
-                throw new Exception("Обратная матрица существует только для квадратных матриц");
+            m3[i, j] = 0;
 
-            var matrix = Clone();
-
-            var determinant = Determinant();
-            if (determinant == 0)
-                return;
-
-            for (int i = 0; i < _rows; i++)
+            for (var k = 0; k < m1._cols; k++)
             {
-                for (int j = 0; j < _cols; j++)
-                {
-                    var tmp = matrix.Minor(i, j);
-
-                    var detMinor = tmp.Determinant();
-                    var pow = Math.Pow(-1, i + 1 + j + 1);
-
-                    _matrix[j, i] = 1 / determinant * detMinor * pow;
-                }
+                m3[i, j] += m1._matrix[i, k] * m2._matrix[k, j];
             }
         }
 
-        public Tuple<int, int> Shape()
+        return new Matrix(m3);
+    }
+
+    public static Matrix operator *(Matrix m1, double value)
+    {
+        var m3 = new double[m1._rows, m1._cols];
+
+        for (var i = 0; i < m1._rows; i++)
+        for (var j = 0; j < m1._cols; j++)
         {
-            return new Tuple<int, int>(_rows, _cols);
+            m3[i, j] += m1._matrix[i, j] * value;
         }
 
-        public static Matrix operator *(Matrix m1, Matrix m2)
+        return new Matrix(m3);
+    }
+
+    public static Matrix operator +(Matrix m1, Matrix m2)
+    {
+        if (m1._cols != m2._cols || m1._rows != m2._rows)
         {
-            if (m1._cols != m2._rows)
-            {
-                throw new Exception(
-                    "Умножение не возможно. Количество столбцов первой матрицы не равно количеству строк второй матрицы.");
-            }
-
-            var m3 = new double[m1._rows, m2._cols];
-
-            for (var i = 0; i < m1._rows; i++)
-            for (var j = 0; j < m2._cols; j++)
-            {
-                m3[i, j] = 0;
-
-                for (var k = 0; k < m1._cols; k++)
-                {
-                    m3[i, j] += m1._matrix[i, k] * m2._matrix[k, j];
-                }
-            }
-
-            return new Matrix(m3);
+            throw new Exception("Для матриц с разным размером сложение не возможно");
         }
 
-        public static Matrix operator *(Matrix m1, double value)
+        var m3 = new double[m1._rows, m2._cols];
+
+        for (var i = 0; i < m1._rows; i++)
+        for (var j = 0; j < m2._cols; j++)
+            m3[i, j] = m1._matrix[i, j] + m2._matrix[i, j];
+
+        return new Matrix(m3);
+    }
+
+    public static Matrix operator -(Matrix m1, Matrix m2)
+    {
+        if (m1._cols != m2._cols || m1._rows != m2._rows)
         {
-            var m3 = new double[m1._rows, m1._cols];
-
-            for (var i = 0; i < m1._rows; i++)
-            for (var j = 0; j < m1._cols; j++)
-            {
-                m3[i, j] += m1._matrix[i, j] * value;
-            }
-
-            return new Matrix(m3);
+            throw new Exception("Для матриц с разным размером вычитание не возможно");
         }
 
-        public static Matrix operator +(Matrix m1, Matrix m2)
-        {
-            if (m1._cols != m2._cols || m1._rows != m2._rows)
-            {
-                throw new Exception("Для матриц с разным размером сложение не возможно");
-            }
+        var m3 = new double[m1._rows, m2._cols];
 
-            var m3 = new double[m1._rows, m2._cols];
+        for (var i = 0; i < m1._rows; i++)
+        for (var j = 0; j < m2._cols; j++)
+            m3[i, j] = m1._matrix[i, j] - m2._matrix[i, j];
 
-            for (var i = 0; i < m1._rows; i++)
-            for (var j = 0; j < m2._cols; j++)
-                m3[i, j] = m1._matrix[i, j] + m2._matrix[i, j];
+        return new Matrix(m3);
+    }
 
-            return new Matrix(m3);
-        }
+    public double this[int row, int col] => _matrix[row, col];
 
-        public static Matrix operator -(Matrix m1, Matrix m2)
-        {
-            if (m1._cols != m2._cols || m1._rows != m2._rows)
-            {
-                throw new Exception("Для матриц с разным размером вычитание не возможно");
-            }
+    public override bool Equals(object? obj)
+    {
+        if (obj?.GetType() != GetType())
+            return false;
 
-            var m3 = new double[m1._rows, m2._cols];
+        var matrix = (Matrix)obj;
 
-            for (var i = 0; i < m1._rows; i++)
-            for (var j = 0; j < m2._cols; j++)
-                m3[i, j] = m1._matrix[i, j] - m2._matrix[i, j];
+        if (_cols != matrix._cols || _rows != matrix._rows)
+            return false;
 
-            return new Matrix(m3);
-        }
-
-        public double this[int row, int col] => _matrix[row, col];
-
-        public override bool Equals(object obj)
-        {
-            if (obj?.GetType() != GetType())
+        for (int rows = 0; rows < _rows; rows++)
+        for (int cols = 0; cols < _cols; cols++)
+            if (matrix._matrix[rows, cols] != _matrix[rows, cols])
                 return false;
 
-            Matrix matrix = (Matrix)obj;
+        return true;
+    }
 
-            if (_cols != matrix._cols || _rows != matrix._rows)
-                return false;
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(_matrix, _cols, _rows);
+    }
 
-            for (int rows = 0; rows < _rows; rows++)
-            for (int cols = 0; cols < _cols; cols++)
-                if (matrix._matrix[rows, cols] != _matrix[rows, cols])
-                    return false;
+    public static bool operator ==(Matrix m1, Matrix m2)
+    {
+        return m1.Equals(m2);
+    }
 
-            return true;
-        }
+    public static bool operator !=(Matrix m1, Matrix m2)
+    {
+        return !(m1 == m2);
+    }
 
-        public override int GetHashCode()
+    public override string ToString()
+    {
+        var sb = new StringBuilder();
+
+        for (var i = 0; i < _rows; i++)
         {
-            return HashCode.Combine(_matrix, _cols, _rows);
+            for (var j = 0; j < _cols; j++)
+                sb.Append(_matrix[i, j].ToString().PadLeft(4));
+
+            sb.AppendLine();
         }
 
-        public static bool operator ==(Matrix m1, Matrix m2)
-        {
-            if ((object)m1 == null || (object)m2 == null)
-                return false;
-
-            return m1.Equals(m2);
-        }
-
-        public static bool operator !=(Matrix m1, Matrix m2)
-        {
-            return !(m1 == m2);
-        }
-
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-
-            for (var i = 0; i < _rows; i++)
-            {
-                for (var j = 0; j < _cols; j++)
-                    sb.Append(_matrix[i, j].ToString().PadLeft(4));
-
-                sb.AppendLine();
-            }
-
-            return sb.ToString();
-        }
+        return sb.ToString();
     }
 }
