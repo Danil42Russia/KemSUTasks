@@ -1,5 +1,4 @@
-﻿#nullable enable
-namespace Complex;
+﻿namespace Complex;
 
 public sealed class ComplexNumber : MyString
 {

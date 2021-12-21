@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using Complex;
 using NUnit.Framework;
 
-#nullable enable
 namespace ComplexTests;
 
 [SuppressMessage("ReSharper", "HeapView.BoxingAllocation")]

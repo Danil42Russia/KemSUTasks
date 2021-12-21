@@ -1,5 +1,4 @@
-﻿#nullable enable
-namespace Complex;
+﻿namespace Complex;
 
 public class MyString
 {
