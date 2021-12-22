@@ -12,7 +12,7 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  Position = poDesigned
+  Position = poScreenCenter
   OnActivate = FormActivate
   OnCreate = FormCreate
   PixelsPerInch = 96
@@ -46,9 +46,9 @@ object Form1: TForm1
       Caption = #1052#1072#1090#1077#1088#1080#1072#1083
     end
     object DBRadioGroup1: TDBRadioGroup
-      Left = 24
+      Left = 3
       Top = 24
-      Width = 158
+      Width = 171
       Height = 96
       Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1086#1089#1085#1086#1074#1072#1085#1080#1077
       Ctl3D = True
@@ -56,7 +56,7 @@ object Form1: TForm1
       TabOrder = 0
     end
     object RBtnCil: TRadioButton
-      Left = 32
+      Left = 16
       Top = 41
       Width = 113
       Height = 17
@@ -67,7 +67,7 @@ object Form1: TForm1
       OnClick = EditZagotClick
     end
     object RBtnPar: TRadioButton
-      Left = 32
+      Left = 16
       Top = 64
       Width = 113
       Height = 17
@@ -106,7 +106,7 @@ object Form1: TForm1
         'Ne')
     end
     object RBtnPri: TRadioButton
-      Left = 32
+      Left = 16
       Top = 87
       Width = 113
       Height = 17
@@ -173,14 +173,14 @@ object Form1: TForm1
     Left = 192
     Top = 0
     Width = 531
-    Height = 501
+    Height = 505
     Caption = #1042#1080#1076' '#1079#1072#1075#1086#1090#1086#1074#1082#1080
     TabOrder = 4
-    object Image1: TImage
+    object ImageZagot: TImage
       Left = 3
-      Top = 24
+      Top = 16
       Width = 525
-      Height = 477
+      Height = 485
     end
   end
 end

@@ -32,7 +32,7 @@ type
     BtnCalk: TButton;
     BtnExit: TButton;
     GroupBoxVisualization: TGroupBox;
-    Image1: TImage;
+    ImageZagot: TImage;
     LabelParamsOsnov: TLabel;
     LabelParamsHeight: TLabel;
     LabelParamsMaterial: TLabel;
@@ -121,7 +121,7 @@ end;
 
 procedure TZagot.Draw; // Отрисовка заготовки
 begin
-  with Form1.Image1.Canvas do
+  with Form1.ImageZagot.Canvas do
     Fillrect(ClipRect);
   m := SHeight;
   if SOsnov > m then
@@ -152,7 +152,7 @@ end;
 
 procedure TCil.Show(Heig: real; Osn: real; Zc: TColor); // Отрисовка цилиндра
 begin
-  with Form1.Image1.Canvas do
+  with Form1.ImageZagot.Canvas do
   begin
     Pen.color := Zc;
     Pen.Style := psSolid;
@@ -191,7 +191,7 @@ end;
 
 procedure TPar.Show(Heig: real; Osn: real; Zc: TColor); // Отрисовка параллелепипеда
 begin
-  with Form1.Image1.Canvas do
+  with Form1.ImageZagot.Canvas do
   begin
     Pen.color := Zc;
     Pen.Style := psSolid;
@@ -229,7 +229,7 @@ end;
 
 procedure TPri.Show(Heig: real; Osn: real; Zc: TColor); // Отрисовка призмы
 begin
-  with Form1.Image1.Canvas do
+  with Form1.ImageZagot.Canvas do
   begin
     Pen.color := Zc;
     Pen.Style := psSolid;
@@ -295,7 +295,7 @@ end;
 
 procedure TForm1.FormActivate(Sender: TObject);
 begin
-  Form1.Image1.Canvas.Rectangle(0, 0, Image1.Width, Image1.Height);
+  Form1.ImageZagot.Canvas.Rectangle(0, 0, ImageZagot.Width, ImageZagot.Height);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
