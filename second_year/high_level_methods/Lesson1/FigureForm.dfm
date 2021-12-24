@@ -99,11 +99,6 @@ object Form1: TForm1
       Width = 57
       Height = 21
       TabOrder = 5
-      Items.Strings = (
-        'Cu'
-        'Al'
-        'Fi'
-        'Ne')
     end
     object RBtnPri: TRadioButton
       Left = 16

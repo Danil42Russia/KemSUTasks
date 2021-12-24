@@ -3,18 +3,19 @@
 interface
 
 uses
-  Winapi.Windows,
-  Winapi.Messages,
-  System.SysUtils,
-  System.Variants,
   System.Classes,
-  Vcl.Graphics,
+  System.SysUtils,
+  System.TypInfo,
+  System.Variants,
   Vcl.Controls,
-  Vcl.Forms,
+  Vcl.DBCtrls,
   Vcl.Dialogs,
-  Vcl.StdCtrls,
   Vcl.ExtCtrls,
-  Vcl.DBCtrls;
+  Vcl.Forms,
+  Vcl.Graphics,
+  Vcl.StdCtrls,
+  Winapi.Messages,
+  Winapi.Windows;
 
 type
   TForm1 = class(TForm)
@@ -98,7 +99,7 @@ begin
   DHeight := 1;
   SOsnov := 10;
   DOsnov := 1;
-  Structure := Cu;
+  Structure := TMaterial.Cu;
 end;
 
 procedure TZagot.Deform; // Деформация абстрактной заготовки
@@ -107,15 +108,16 @@ var
 begin
   k := 1;
   case Structure of
-    Cu:
+    TMaterial.Cu:
       k := 2;
-    Al:
+    TMaterial.Al:
       k := 3;
-    Fe:
+    TMaterial.Fe:
       k := 4;
-    Ni:
+    TMaterial.Ni:
       k := 5;
   end;
+
   DHeight := SHeight - SHeight / k;
 end;
 
@@ -278,7 +280,7 @@ begin
     begin
       SOsnov := StrToFloat(EditParamsOsnov.Text);
       SHeight := StrToFloat(EditParamsHeight.Text);
-      Structure := Cu;
+      Structure := TMaterial.Cu;
       inc(Structure, CBoxMaterial.ItemIndex);
       Deform;
       Draw;
@@ -299,7 +301,12 @@ begin
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
+var
+  TM: TMaterial;
 begin
+  for TM := Low(TMaterial) to High(TMaterial) do
+    CBoxMaterial.Items.Add(GetEnumName(TypeInfo(TMaterial), Ord(TM)));
+
   CBoxMaterial.ItemIndex := 0;
 end;
 
