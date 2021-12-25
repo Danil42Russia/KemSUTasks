@@ -48,7 +48,7 @@ static class Program
         Console.WriteLine("<== Задать секунды ==>");
         Console.WriteLine($"Записанные секунды: {_time.Second:D2}");
 
-        Console.Write("Введите секунды: ");
+        Console.Write("Введите секунды (от 0 до 59): ");
         try
         {
             var second = int.Parse(Console.ReadLine() ?? "");
@@ -66,7 +66,7 @@ static class Program
     {
         Console.Clear();
         Console.WriteLine("<== Задать минуты ==>");
-        Console.WriteLine($"Записанные минуты: {_time.Minute:D2}");
+        Console.WriteLine($"Записанные минуты (от 0 до 59): {_time.Minute:D2}");
 
         Console.Write("Введите минуты: ");
         try
@@ -86,7 +86,7 @@ static class Program
     {
         Console.Clear();
         Console.WriteLine("<== Задать часы ==>");
-        Console.WriteLine($"Записанные часы: {_time.Hour:D2}");
+        Console.WriteLine($"Записанные часы (от 0 до 23): {_time.Hour:D2}");
 
         Console.Write("Введите часы: ");
         try
