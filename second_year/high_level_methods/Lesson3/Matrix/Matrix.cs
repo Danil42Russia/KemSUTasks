@@ -2,7 +2,7 @@
 
 namespace Matrix;
 
-public class Matrix
+public sealed class Matrix
 {
     private double[,] _matrix;
     private int _cols;
@@ -32,9 +32,7 @@ public class Matrix
 
         for (var i = 0; i < _rows; i++)
         for (var j = 0; j < _cols; j++)
-        {
             m3[j, i] = _matrix[i, j];
-        }
 
         (_cols, _rows) = (_rows, _cols);
         _matrix = m3;
@@ -125,10 +123,8 @@ public class Matrix
     public static Matrix operator *(Matrix m1, Matrix m2)
     {
         if (m1._cols != m2._rows)
-        {
             throw new Exception(
                 "Умножение не возможно. Количество столбцов первой матрицы не равно количеству строк второй матрицы.");
-        }
 
         var m3 = new double[m1._rows, m2._cols];
 
@@ -138,9 +134,7 @@ public class Matrix
             m3[i, j] = 0;
 
             for (var k = 0; k < m1._cols; k++)
-            {
                 m3[i, j] += m1._matrix[i, k] * m2._matrix[k, j];
-            }
         }
 
         return new Matrix(m3);
@@ -162,9 +156,7 @@ public class Matrix
     public static Matrix operator +(Matrix m1, Matrix m2)
     {
         if (m1._cols != m2._cols || m1._rows != m2._rows)
-        {
             throw new Exception("Для матриц с разным размером сложение не возможно");
-        }
 
         var m3 = new double[m1._rows, m2._cols];
 
@@ -178,9 +170,7 @@ public class Matrix
     public static Matrix operator -(Matrix m1, Matrix m2)
     {
         if (m1._cols != m2._cols || m1._rows != m2._rows)
-        {
             throw new Exception("Для матриц с разным размером вычитание не возможно");
-        }
 
         var m3 = new double[m1._rows, m2._cols];
 
