@@ -27,16 +27,13 @@ public class MyString
 
     public void Clear()
     {
-        _str = String.Empty;
+        _str = string.Empty;
         _lenght = 0;
     }
 
     public override bool Equals(object? obj)
     {
-        if (obj == null)
-            return false;
-
-        if (obj.GetType() != GetType())
+        if (obj?.GetType() != GetType())
             return false;
 
         var str = (MyString)obj;

@@ -40,15 +40,12 @@ public sealed class ComplexNumber : MyString
 
     public override bool Equals(object? obj)
     {
-        if (obj == null)
+        if (obj?.GetType() != GetType())
             return false;
 
-        if (obj.GetType() != GetType())
-            return false;
+        var complex = (ComplexNumber)obj;
 
-        var value = (ComplexNumber)obj;
-
-        return _real == value._real && _imaginary == value._imaginary;
+        return _real == complex._real && _imaginary == complex._imaginary;
     }
 
     public override int GetHashCode()

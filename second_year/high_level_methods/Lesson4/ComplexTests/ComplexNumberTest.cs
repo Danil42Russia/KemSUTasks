@@ -1,12 +1,9 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using Complex;
 using NUnit.Framework;
 
 namespace ComplexTests;
 
-[SuppressMessage("ReSharper", "HeapView.BoxingAllocation")]
-[SuppressMessage("ReSharper", "HeapView.ObjectAllocation.Evident")]
 public class ComplexNumberTest
 {
     [Test, TestCaseSource(nameof(_complexNumberStringCases))]
