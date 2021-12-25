@@ -8,6 +8,8 @@ static class Program
     {
         while (true)
         {
+            Console.Title = $"Time: {_time}";
+
             Console.Clear();
             Console.WriteLine("<== Меню ==>");
             Console.WriteLine($"Записанное время {_time}");
