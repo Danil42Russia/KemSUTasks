@@ -19,10 +19,7 @@ public sealed class Time
         set
         {
             if (value < 0 || value > 59)
-            {
-                throw new ArgumentOutOfRangeException("Недопустимое значение секунд: " + value +
-                                                      " (допустимое 0 - 59)");
-            }
+                throw new ArgumentOutOfRangeException($"Недопустимое значение секунд: {value} (допустимое 0 - 59)");
 
             _second = value;
         }
@@ -34,10 +31,7 @@ public sealed class Time
         set
         {
             if (value < 0 || value > 59)
-            {
-                throw new ArgumentOutOfRangeException("Недопустимое значение минут: " + value +
-                                                      " (допустимое 0 - 59)");
-            }
+                throw new ArgumentOutOfRangeException($"Недопустимое значение минут: {value} (допустимое 0 - 59)");
 
             _minute = value;
         }
@@ -49,10 +43,7 @@ public sealed class Time
         set
         {
             if (value < 0 || value > 23)
-            {
-                throw new ArgumentOutOfRangeException("Недопустимое значение часа: " + value +
-                                                      " (допустимое 0 - 23)");
-            }
+                throw new ArgumentOutOfRangeException($"Недопустимое значение часа: {value} (допустимое 0 - 23)");
 
             _hour = value;
         }
