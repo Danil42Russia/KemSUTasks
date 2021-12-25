@@ -7,6 +7,7 @@
 # C Sharp
 [Oo]bj/
 [Bb]in/
+*.pubxml
 
 # Delphi
 __history/
