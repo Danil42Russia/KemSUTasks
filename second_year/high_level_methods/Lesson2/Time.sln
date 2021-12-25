@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Time", "Time\Time.csproj", "{56E5ADD6-0A56-44E3-BF9A-A9F394985941}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTests", "TimeTests\TimeTests.csproj", "{02B43708-7CB8-4BE0-A0A6-3162FAA749A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56E5ADD6-0A56-44E3-BF9A-A9F394985941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E5ADD6-0A56-44E3-BF9A-A9F394985941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E5ADD6-0A56-44E3-BF9A-A9F394985941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E5ADD6-0A56-44E3-BF9A-A9F394985941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B43708-7CB8-4BE0-A0A6-3162FAA749A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B43708-7CB8-4BE0-A0A6-3162FAA749A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B43708-7CB8-4BE0-A0A6-3162FAA749A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B43708-7CB8-4BE0-A0A6-3162FAA749A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

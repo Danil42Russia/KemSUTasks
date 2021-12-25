@@ -1,16 +1,12 @@
 # IDE
 .idea/
 .vs/
-out/
 *.iml
 *.user
 
 # C Sharp
 [Oo]bj/
 [Bb]in/
-
-# Java
-*.class
 
 # Delphi
 __history/
