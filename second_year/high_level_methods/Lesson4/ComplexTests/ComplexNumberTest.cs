@@ -82,4 +82,16 @@ public class ComplexNumberTest
         new("-8i-6", "-8i-6"),
         new("+6i+6", "6i6")
     };
+
+    [Test, TestCaseSource(nameof(_complexNumberToStringCases))]
+    public void ComplexNumber_Equals(Tuple<string, string> tuple)
+    {
+        var (s1, s2) = tuple;
+
+        var cn1 = new ComplexNumber(s1);
+        var cn2 = new ComplexNumber(s2);
+
+        Assert.True(cn1.Equals(cn2));
+        Assert.True(cn2.Equals(cn1));
+    }
 }
