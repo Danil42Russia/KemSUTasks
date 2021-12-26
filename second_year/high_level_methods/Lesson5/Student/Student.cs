@@ -14,6 +14,9 @@ public readonly struct Student
     {
         init
         {
+            if (value.Length == 0)
+                throw new ArgumentException("Минимальное количество оценок: 1");
+
             if (value.Length > MaxEvaluationsCount)
                 throw new ArgumentException($"Максимальное количество оценок: {MaxEvaluationsCount}");
 
@@ -32,6 +35,7 @@ public readonly struct Student
 
     public override string ToString()
     {
-        return $"фамилия: {Surname} группа: {GroupNumber} средний балл: {Average} ({string.Join(", ", Evaluations)})";
+        return
+            $"фамилия: {Surname} группа: {GroupNumber} средний балл: {Average:F2} ({string.Join(", ", Evaluations)})";
     }
 }

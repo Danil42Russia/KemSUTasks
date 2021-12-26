@@ -9,13 +9,15 @@ static class Program
     {
         while (true)
         {
+            Console.Title = $"Student: {Students.Count}/{MaxCountStudents}";
+
             Console.Clear();
             Console.WriteLine("<== Меню ==>");
             Console.WriteLine("A. Добавить студента");
             Console.WriteLine("S. Показать студентов");
             Console.WriteLine("Q. Выход");
 
-            var position = Console.ReadLine() ?? "";
+            var position = Console.ReadLine();
             switch (position)
             {
                 case "Q":
