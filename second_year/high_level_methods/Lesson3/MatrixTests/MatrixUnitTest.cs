@@ -239,8 +239,7 @@ public class Tests
         Assert.True(m1 != m2);
     }
 
-    [Test]
-    [TestCaseSource(nameof(_determinantCases))]
+    [Test, TestCaseSource(nameof(_determinantCases))]
     public void Matrix_Determinant(double[,] data, double actual)
     {
         var matrix = new Matrix.Matrix(data);
@@ -279,35 +278,61 @@ public class Tests
                 { -5, 4, -1, 2 }
             },
             -18
+        },
+        new object[]
+        {
+            new double[,]
+            {
+                { 1 },
+            },
+            1
         }
     };
 
-
-    [Test]
-    public void Matrix_Inverse()
+    [Test, TestCaseSource(nameof(_inverseCases))]
+    public void Matrix_Inverse(Tuple<double[,], double[,]> tuple)
     {
-        double[,] d1 =
-        {
-            { 1, -2, 1 },
-            { 2, 1, -1 },
-            { 3, 2, -2 }
-        };
-        var actual = new Matrix.Matrix(d1);
+        var (actualData, expectedData) = tuple;
+
+        var actual = new Matrix.Matrix(actualData);
         actual.Inverse();
 
-        double[,] d2 =
-        {
-            { 0, 2, -1 },
-            { -1, 5, -3 },
-            { -1, 8, -5 }
-        };
-        var expected = new Matrix.Matrix(d2);
+        var expected = new Matrix.Matrix(expectedData);
 
         Assert.AreEqual(expected, actual);
     }
 
-    [Test]
-    [TestCaseSource(nameof(_minorCases))]
+    private static Tuple<double[,], double[,]>[] _inverseCases =
+    {
+        new(
+            new double[,]
+            {
+                { 1, -2, 1 },
+                { 2, 1, -1 },
+                { 3, 2, -2 }
+            },
+            new double[,]
+            {
+                { 0, 2, -1 },
+                { -1, 5, -3 },
+                { -1, 8, -5 }
+            }
+        ),
+        new(
+            new double[,]
+            {
+                { 3, 4 },
+                { 5, 6 }
+            },
+            new double[,]
+            {
+                { -3, 2 },
+                { 2.5, -1.5 }
+            }
+        ),
+    };
+
+    [Test, TestCaseSource(nameof(_minorCases))]
     public void Matrix_Minor(Tuple<int, int> coords, double[,] dataActual)
     {
         double[,] dataExpectedD =
