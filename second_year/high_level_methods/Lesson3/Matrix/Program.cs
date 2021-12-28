@@ -4,10 +4,10 @@ static class Program
 {
     private static void Main()
     {
-        Console.Title = "Matrix";
-
         while (true)
         {
+            Console.Title = "Matrix";
+
             Console.Clear();
             Console.WriteLine("<== Меню ==>");
             Console.WriteLine();
