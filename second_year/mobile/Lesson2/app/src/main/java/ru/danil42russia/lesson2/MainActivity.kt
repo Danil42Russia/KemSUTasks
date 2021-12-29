@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val spinner = findViewById<Spinner>(R.id.beer_option)
         val findButton = findViewById<Button>(R.id.find_beer)
-        val text = findViewById<TextView>(R.id.beer_names)
+        val beersNames = findViewById<TextView>(R.id.beer_names)
 
         val beerList = mapOf(
             "светлое" to listOf("Heineken", "Жигулевское", "Клинское"),
@@ -31,16 +31,14 @@ class MainActivity : AppCompatActivity() {
 
         findButton.setOnClickListener {
             val beerType = spinner.selectedItem.toString()
-            val beerNames = beerList[beerType]
 
-            text.text = beerNames?.joinToString("\n")
+            beersNames.text = beerList[beerType]?.joinToString("\n")
         }
     }
 
-
     fun onClickAttention(v: View) {
-        val text = findViewById<TextView>(R.id.beer_names)
+        val beersNames = findViewById<TextView>(R.id.beer_names)
 
-        text.text = resources.getText(R.string.attention_text)
+        beersNames.text = resources.getText(R.string.attention_text)
     }
 }
