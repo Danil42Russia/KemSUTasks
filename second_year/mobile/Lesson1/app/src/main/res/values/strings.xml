@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lesson1</string>
+    <string name="app_name">LinearLayout</string>
     <string name="about_me">Овчинников Данил ПИуз-201</string>
     <string name="poem_ru">Если б мишки были пчелами,\nТо они бы нипочём\nНикогда и не подумали\nТак высоко строить дом!</string>
     <string name="poem_en">If bears were bees\nThen they would not care\nNever thought\nBuilding a house so high!</string>
