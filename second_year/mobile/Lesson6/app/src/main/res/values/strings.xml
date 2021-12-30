@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Starbuzz</string>
-    <string name="starbuzz_logo">Starbuzz logo</string>
+    <string name="starbuzz_logo">Starbuzz лого</string>
     <string-array name="options">
-        <item>Drinks</item>
-        <item>Food</item>
-        <item>Stores</item>
+        <item>Напитки</item>
+        <item>Блюда</item>
+        <item>Магазины</item>
     </string-array>
 </resources>

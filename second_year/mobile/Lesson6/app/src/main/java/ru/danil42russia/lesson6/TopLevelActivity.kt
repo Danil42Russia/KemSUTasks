@@ -11,7 +11,6 @@ class TopLevelActivity : AppCompatActivity() {
         setContentView(R.layout.activity_top_level)
 
         val listView = findViewById<ListView>(R.id.list_options)
-
         listView.setOnItemClickListener { _, _, position, _ ->
             if (position == 0) {
                 val intent = Intent(this, DrinkCategoryActivity::class.java)

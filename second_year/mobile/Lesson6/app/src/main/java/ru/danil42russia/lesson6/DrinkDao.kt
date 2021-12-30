@@ -8,18 +8,18 @@ class DrinkDao {
 
         val DRINKS = listOf(
             Drink(
-                "Latte",
-                "A couple of espresso shots with steamed milk",
+                "Латте",
+                "Пара порций эспрессо с парным молоком",
                 R.drawable.latte,
             ),
             Drink(
-                "Cappuccino",
-                "Espresso, hot milk, and a steamed milk foam",
+                "Капучино",
+                "Эспрессо, горячее молоко и молочная пена на пару",
                 R.drawable.cappuccino,
             ),
             Drink(
-                "Filter",
-                "Highest quality beans roasted and brewed fresh",
+                "Фильтр-кофе",
+                "Бобы высочайшего качества, обжаренные и сваренные в свежем виде",
                 R.drawable.filter,
             )
         )
