@@ -1,14 +1,11 @@
 package ru.danil42russia.lesson3
 
 import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.content.Intent
-
-import android.R.string.no
-
+import androidx.appcompat.app.AppCompatActivity
 
 class SelectActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +17,7 @@ class SelectActivity : AppCompatActivity() {
             val returnIntent = Intent()
             val radioTest = findViewById<RadioButton>(checkedId)
 
-            returnIntent.putExtra("text", radioTest.text);
+            returnIntent.putExtra(MainActivity.RESULT_TEXT, radioTest.text)
 
             setResult(Activity.RESULT_OK, returnIntent)
             finish()

@@ -11,7 +11,10 @@
         android:theme="@style/Theme.Lesson3">
         <activity
             android:name=".SelectActivity"
-            android:exported="true" />
+            android:exported="false" />
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -21,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MessageActivity" />
     </application>
 
 </manifest>

@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             val messageActivity = Intent(it.context, MessageActivity::class.java).also { intent ->
                 val text = textMessage.editText?.text.toString()
 
-                intent.putExtra("message", text)
+                intent.putExtra(SEND_MESSAGE, text)
             }
 
             startActivity(messageActivity)
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                 if (result.resultCode == Activity.RESULT_OK) {
                     val data = result.data
 
-                    textMessage.editText?.setText(data?.getStringExtra("text"))
+                    textMessage.editText?.setText(data?.getStringExtra(RESULT_TEXT))
                 }
             }
 
@@ -53,5 +53,10 @@ class MainActivity : AppCompatActivity() {
 
             resultLauncher.launch(selectActivity)
         }
+    }
+
+    companion object {
+        const val SEND_MESSAGE = "message"
+        const val RESULT_TEXT = "text"
     }
 }
