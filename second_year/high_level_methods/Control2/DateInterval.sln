@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateInterval", "DateInterval\DateInterval.csproj", "{3088AE82-22E4-4EF9-8B54-460A5BCD99E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateInterval.Test", "DateInterval.Test\DateInterval.Test.csproj", "{9C95E196-2CD9-41B0-AD76-D4E24EE035A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3088AE82-22E4-4EF9-8B54-460A5BCD99E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3088AE82-22E4-4EF9-8B54-460A5BCD99E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3088AE82-22E4-4EF9-8B54-460A5BCD99E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3088AE82-22E4-4EF9-8B54-460A5BCD99E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C95E196-2CD9-41B0-AD76-D4E24EE035A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C95E196-2CD9-41B0-AD76-D4E24EE035A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C95E196-2CD9-41B0-AD76-D4E24EE035A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C95E196-2CD9-41B0-AD76-D4E24EE035A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
