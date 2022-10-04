@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Logging</string>
+    <string name="button_log">Логирование Log</string>
+    <string name="button_timber">Логирование Timber</string>
+</resources>
