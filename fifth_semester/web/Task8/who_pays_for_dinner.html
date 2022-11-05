@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Кто оплачивает ужин?</title>
+</head>
+<body>
+<script>
+  document.addEventListener('DOMContentLoaded', main);
+
+  function main() {
+    const inputString = prompt('Введите имена через запятую');
+    if (isEmptyOrNull(inputString)) {
+      alert('Список имён не должен быть пустым');
+      return;
+    }
+
+    const names = inputString.split(',').map(name => name.trim());
+    const numberIndex = randomIntFromInterval(0, names.length - 1);
+
+    const paymentName = names[numberIndex];
+    alert(`Оплачивать будет ${paymentName}`);
+  }
+
+  /**
+   * @param line {?String}
+   * @return {Boolean}
+   */
+  function isEmptyOrNull(line) {
+    if (line === null) {
+      return true;
+    }
+
+    return line.trim() === '';
+  }
+
+  /**
+   * @param min {Number}
+   * @param max {Number}
+   * @return {Number}
+   */
+  function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+</script>
+</body>
+</html>
