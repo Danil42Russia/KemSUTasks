@@ -5,22 +5,6 @@
     <title>Является ли год високосным?</title>
 </head>
 <body>
-<script>
-  document.addEventListener('DOMContentLoaded', main);
-
-  function main() {
-    const year = parseInt(prompt('Введите год'));
-
-    alert(isLeapYear(year) ? 'Високосный год' : 'Не является високосным');
-  }
-
-  /**
-   * @param year {Number}
-   * @return {Boolean}
-   */
-  function isLeapYear(year) {
-    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-  }
-</script>
+<script src="leap_year.js"></script>
 </body>
 </html>

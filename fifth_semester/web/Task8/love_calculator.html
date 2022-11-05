@@ -3,49 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Калькулятор любви</title>
+    <script src="common.js"></script>
 </head>
 <body>
-<script>
-  document.addEventListener('DOMContentLoaded', main);
-
-  function main() {
-    const firstName = prompt('Введите первое имя');
-    if (isEmptyOrNull(firstName)) {
-      alert('Ошибка: Имя не должно быть пустым');
-      return;
-    }
-
-    const secondName = prompt('Введите второе имя');
-    if (isEmptyOrNull(secondName)) {
-      alert('Ошибка: Имя не должно быть пустым');
-      return;
-    }
-
-    const result = randomIntFromInterval(0, 100);
-
-    alert(`${firstName} подходит к ${secondName} на ${result} процентов!`);
-  }
-
-  /**
-   * @param line {?String}
-   * @return {Boolean}
-   */
-  function isEmptyOrNull(line) {
-    if (line === null) {
-      return true;
-    }
-
-    return line.trim() === '';
-  }
-
-  /**
-   * @param min {Number}
-   * @param max {Number}
-   * @return {Number}
-   */
-  function randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-</script>
+<script src=love_calculator.js></script>
 </body>
 </html>

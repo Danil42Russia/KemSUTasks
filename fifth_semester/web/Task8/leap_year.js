@@ -1,0 +1,17 @@
+document.addEventListener('DOMContentLoaded', main);
+
+function main() {
+  const year = parseInt(prompt('Введите год'));
+
+  alert(isLeapYear(year) ? 'Високосный год' : 'Не является високосным');
+}
+
+/**
+ * Возвращает true, если год является високосным.
+ *
+ * @param year {Number}
+ * @return {Boolean}
+ */
+function isLeapYear(year) {
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
