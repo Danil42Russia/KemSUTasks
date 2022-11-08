@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задачи</title>
+    <script src="task_one.js"></script>
+    <script src="task_two.js"></script>
+</head>
+<body>
+<script>
+  // Задача 1: вычислить факториал числа
+  const n = 5;
+  console.log(`Факториал числа ${n}:`, factorial(n));
+
+  // Задача 2: Проверить что слово - палиндром
+  console.log(palindromeHelper('шалаш'));
+  console.log(palindromeHelper('дом'));
+
+  /**
+   * Хэпер для вывода
+   *
+   * @param line {String}
+   * @return {String}
+   */
+  function palindromeHelper(line) {
+    return `Слово '${line}' ` + (isPalindrome(line) ? 'палиндром' : 'не палиндром');
+  }
+</script>
+</body>
+</html>
