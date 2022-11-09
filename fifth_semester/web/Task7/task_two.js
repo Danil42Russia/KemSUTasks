@@ -5,7 +5,7 @@
  * @return {Boolean}
  */
 function isPalindrome(line) {
-  const reverse_line = line.split('').reverse().join('');
+  const reverseLine = line.split('').reverse().join('');
 
-  return line === reverse_line;
+  return line === reverseLine;
 }
