@@ -47,24 +47,23 @@ function inputValidate(target: HTMLInputElement) {
 }
 
 function nameHasher() {
-  const firstValue = firstName?.value;
+  const firstValue = firstName.value;
   if (isBlank(firstValue)) {
     return;
   }
 
-  const secondValue = secondName?.value;
+  const secondValue = secondName.value;
   if (isBlank(secondValue)) {
     return;
   }
 
-  const result = hashedName(firstValue, secondValue);
+  const result = getCompatibilityFromNames(firstValue, secondValue);
   progress.value = result;
   progressLabel.innerText = `${result}%`;
 }
 
-function hashedName(firstName: string, secondName: string): number {
-  const names = [firstName, secondName]
-    .map(name => normalizedName(name));
+function getCompatibilityFromNames(...names: string[]): number {
+  names = names.map(name => normalizedName(name));
 
   // Если два имени одинаковы, вернём 50%
   if (lodash.uniq(names).length === 1) {
@@ -77,7 +76,7 @@ function hashedName(firstName: string, secondName: string): number {
   // @ts-ignore
   random.use(seedRandom(hashName));
 
-  return random.int(1, 100);
+  return random.int(0, 100);
 }
 
 function normalizedName(name: string): string {
