@@ -14,6 +14,12 @@ function main() {
  */
 function keyDown(event) {
   const keyName = event.key;
+
+  const element = getElementByShortName(keyName);
+  if (element !== null) {
+    showPassedByElement(element);
+  }
+
   playSoundByShortName(keyName);
 }
 
@@ -22,12 +28,14 @@ function keyDown(event) {
  */
 function drumClick(event) {
   const drumElement = event.target;
+
+  showPassedByElement(drumElement);
   playSoundByShortName(drumElement.innerText);
 }
 
 /**
- * @param shortName {String}
- * @return {?String}
+ * @param shortName {string}
+ * @return {?string}
  */
 function getElementNameByShortName(shortName) {
   switch (shortName) {
@@ -58,7 +66,7 @@ function getElementNameByShortName(shortName) {
 }
 
 /**
- * @param soundName {String}
+ * @param soundName {string}
  */
 function paySoundByName(soundName) {
   const audi = new Audio(`sounds/${soundName}.mp3`);
@@ -66,7 +74,7 @@ function paySoundByName(soundName) {
 }
 
 /**
- * @param shortName {String}
+ * @param shortName {string}
  */
 function playSoundByShortName(shortName) {
   const soundName = getElementNameByShortName(shortName);
@@ -75,4 +83,29 @@ function playSoundByShortName(shortName) {
   }
 
   paySoundByName(soundName);
+}
+
+/**
+ * @param element {HTMLElement}
+ */
+function showPassedByElement(element) {
+  element.classList.add('pressed');
+
+  setTimeout(function() {
+    element.classList.remove('pressed');
+  }, 100);
+}
+
+/**
+ * @param shortName {string}
+ * @return {?HTMLElement}
+ */
+function getElementByShortName(shortName) {
+  const elements = document.getElementsByClassName(shortName);
+
+  if (elements.length !== 1) {
+    return null;
+  }
+
+  return elements[0];
 }
