@@ -5,7 +5,7 @@ function main() {
   const drums = document.getElementsByClassName('drum');
   for (let i = 0; i < drums.length; i++) {
     const drumElement = drums[i];
-    drumElement.addEventListener('click', drumClick);
+    drumElement.addEventListener('click', elementClick);
   }
 }
 
@@ -16,21 +16,46 @@ function keyDown(event) {
   const keyName = event.key;
 
   const element = getElementByShortName(keyName);
-  if (element !== null) {
-    showPassedByElement(element);
-  }
-
-  playSoundByShortName(keyName);
+  drumByElement(element);
 }
 
 /**
  * @param event {PointerEvent}
  */
-function drumClick(event) {
-  const drumElement = event.target;
+function elementClick(event) {
+  const element = event.target;
 
-  showPassedByElement(drumElement);
-  playSoundByShortName(drumElement.innerText);
+  drumByElement(element);
+}
+
+/**
+ * @param element {?HTMLElement}
+ */
+function drumByElement(element) {
+  if (element === null) {
+    return;
+  }
+
+  showPassedByElement(element);
+  playSoundByElement(element);
+}
+
+/**
+ * @param element {HTMLElement}
+ */
+function playSoundByElement(element) {
+  playSoundByShortName(element.innerText);
+}
+
+/**
+ * @param element {HTMLElement}
+ */
+function showPassedByElement(element) {
+  element.classList.add('pressed');
+
+  setTimeout(() => {
+    element.classList.remove('pressed');
+  }, 100);
 }
 
 /**
@@ -38,31 +63,17 @@ function drumClick(event) {
  * @return {?string}
  */
 function getElementNameByShortName(shortName) {
-  switch (shortName) {
-    case 'w':
-      return 'tom-1';
+  const elementsNameMap = {
+    w: 'tom-1',
+    a: 'tom-2',
+    s: 'tom-3',
+    d: 'tom-4',
+    j: 'snare',
+    k: 'crash',
+    l: 'kick',
+  };
 
-    case 'a':
-      return 'tom-2';
-
-    case 's':
-      return 'tom-3';
-
-    case 'd':
-      return 'tom-4';
-
-    case 'j':
-      return 'snare';
-
-    case 'k':
-      return 'crash';
-
-    case 'l':
-      return 'kick';
-
-    default:
-      return null;
-  }
+  return elementsNameMap[shortName] ?? null;
 }
 
 /**
@@ -83,17 +94,6 @@ function playSoundByShortName(shortName) {
   }
 
   paySoundByName(soundName);
-}
-
-/**
- * @param element {HTMLElement}
- */
-function showPassedByElement(element) {
-  element.classList.add('pressed');
-
-  setTimeout(function() {
-    element.classList.remove('pressed');
-  }, 100);
 }
 
 /**
