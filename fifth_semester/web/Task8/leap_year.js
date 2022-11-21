@@ -9,8 +9,8 @@ function main() {
 /**
  * Возвращает true, если год является високосным.
  *
- * @param year {Number}
- * @return {Boolean}
+ * @param year {number}
+ * @return {boolean}
  */
 function isLeapYear(year) {
   return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;

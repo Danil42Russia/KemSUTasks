@@ -20,8 +20,8 @@ function main() {
 }
 
 /**
- * @param bmiIndex {Number} ИМТ
- * @return {String}
+ * @param bmiIndex {number} ИМТ
+ * @return {string}
  */
 function textBMI(bmiIndex) {
   if (bmiIndex <= 18.5) {
@@ -40,9 +40,9 @@ function textBMI(bmiIndex) {
 }
 
 /**
- * @param weight {Number} Вес в киллограммах
- * @param height {Number} Рост в сантиметрах
- * @return {Number}
+ * @param weight {number} Вес в килограммах
+ * @param height {number} Рост в сантиметрах
+ * @return {number}
  */
 function calculateBMI(weight, height) {
   height = height / 100;
