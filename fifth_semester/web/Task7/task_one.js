@@ -1,8 +1,8 @@
 /**
  * Вычисление факториала числа
  *
- * @param n {Number}
- * @return {Number}
+ * @param n {number}
+ * @return {number}
  */
 function factorial(n) {
   if (n === 0) {

@@ -1,8 +1,8 @@
 /**
  * Проверка, что слово палиндром
  *
- * @param line {String}
- * @return {Boolean}
+ * @param line {string}
+ * @return {boolean}
  */
 function isPalindrome(line) {
   const reverseLine = line.split('').reverse().join('');
