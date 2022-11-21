@@ -1,0 +1,30 @@
+body {
+  font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
+  color: #fff;
+  background-color: #374954;
+  text-align: center;
+}
+
+.container {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: 0;
+}
+
+#timer {
+  font-size: 100px;
+}
+
+.space {
+  color: #abb9c2;
+  margin: -0.2em;
+}
+
+.out {
+  opacity: .4;
+}
