@@ -29,9 +29,8 @@ export function pick<T extends object, K extends keyof T>(obj: T, keys: readonly
  * Попытка сделать pickAll как в ramda, но с более сильной типизацией
  */
 export function pickAll<T extends object, K extends keyof T>(obj: T, keys: readonly K[]): Pick<T, K> {
-  const entries: ((K | T[K])[])[] = [];
-  keys.map((key) => {
-    entries.push([key, obj[key]]);
+  const entries = keys.map((key) => {
+    return [key, obj[key]];
   });
 
   return Object.fromEntries(entries);

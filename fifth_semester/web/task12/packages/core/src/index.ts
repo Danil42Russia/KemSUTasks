@@ -3,5 +3,3 @@ import { IUser } from './models';
 
 export { pick, randomIntFromInterval };
 export type { IUser };
-
-
