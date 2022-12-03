@@ -1,0 +1,16 @@
+.App__container {
+  display: grid;
+  grid-template-columns: 30% 30% 40%;
+  align-items: start;
+
+  max-width: 1300px;
+  margin: auto;
+}
+
+.App__endpoints, .App__request, .App__response {
+  margin: 5px;
+}
+
+.App__request div:not(:last-child), .App__response div:not(:last-child) {
+  margin-bottom: 10px;
+}

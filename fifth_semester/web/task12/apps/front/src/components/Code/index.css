@@ -1,0 +1,13 @@
+.Code__block {
+  padding: 12px;
+  border: 1px solid rgba(95, 69, 120, 0.1);
+  border-radius: 3px;
+
+  background-color: rgba(231, 213, 255, 0.15);
+}
+
+.Code__code {
+  overflow-y: scroll;
+  font-size: 12px;
+  font-family: Monaco, Consolas, 'Lucida Console', monospace;
+}

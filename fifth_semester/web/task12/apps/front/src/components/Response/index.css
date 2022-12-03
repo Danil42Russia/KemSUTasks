@@ -1,0 +1,22 @@
+.Response__block {
+  padding: 12px;
+  border: 1px solid rgba(95, 69, 120, 0.1);
+  border-radius: 3px;
+}
+
+.Response__title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.Response__code {
+  text-decoration: none;
+  color: #4ba144;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.Response__code.bad {
+  color: #d14;
+}
