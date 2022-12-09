@@ -1,9 +1,8 @@
 import { Request, Response, Router } from 'express';
 import users from '../data/users';
-import { IUser, pick, randomIntFromInterval } from '@req/core';
+import { IUser, pick, pickAll, randomIntFromInterval } from '@req/core';
 import { getUser, ModelRequest, ModelResponse } from '../helpers';
 import { CreateUser, INewUser, IUpdateUser, UpdateUser } from '../models';
-import { pickAll } from '@req/core/src/helpers';
 
 const router: Router = Router();
 
