@@ -10,7 +10,7 @@ export function randomIntFromInterval(min: number, max: number): number {
  * Попытка сделать pick как в lodash, но с более сильной типизацией
  */
 export function pick<T extends object, K extends keyof T>(obj: T, keys: readonly K[]): Pick<T, K> {
-  const entries: ((K | T[K])[])[] = [];
+  const entries: (K | T[K])[][] = [];
   keys.forEach((key) => {
     const value = obj[key];
     if (value !== undefined) {
