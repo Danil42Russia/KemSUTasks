@@ -16,7 +16,7 @@ router.get('/:id', function(req: Request, res: ModelResponse<IUser>) {
     return res.status(404).json({});
   }
 
-  return user;
+  return res.json(user);
 });
 
 router.post('/', function(req: ModelRequest<CreateUser>, res: ModelResponse<INewUser>) {
@@ -45,7 +45,7 @@ router.patch('/:id', function(req: ModelRequest<UpdateUser>, res: ModelResponse<
     updated_at: new Date().toISOString(),
   };
 
-  return res.status(200).json(result);
+  return res.json(result);
 });
 
 router.put('/:id', function(req: ModelRequest<UpdateUser>, res: ModelResponse<IUpdateUser>) {
@@ -62,7 +62,7 @@ router.put('/:id', function(req: ModelRequest<UpdateUser>, res: ModelResponse<IU
     updated_at: new Date().toISOString(),
   };
 
-  return res.status(200).json(result);
+  return res.json(result);
 });
 
 router.delete('/:id', function(req: Request, res: Response) {

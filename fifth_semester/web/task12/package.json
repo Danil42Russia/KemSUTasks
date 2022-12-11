@@ -11,15 +11,15 @@
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "lint": "turbo run lint"
   },
-  "dependencies": {},
   "devDependencies": {
+    "eslint": "latest",
     "prettier": "latest",
     "turbo": "latest",
-    "eslint": "latest",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "@types/node": "^18.0.0"
   },
   "packageManager": "npm@8.19.2",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   }
 }
