@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Montserrat');
+
+* {
+  margin: 0;
+}
+
+body {
+  color: #40514E;
+  text-align: center;
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+
+  background-color: #E4F9F5;
+}
+
+.about-text {
+  place-self: center;
+}
+
+h1 {
+  color: #66BFBF;
+  font-size: 5.6rem;
+  font-family: 'Rubik', sans-serif;
+}
+
+h2 {
+  color: #66BFBF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+
+.cloud {
+  position: absolute;
+}
+
+.top-cloud {
+  right: 20%;
+  top: 5%;
+}
+
+.bottom-cloud {
+  left: 20%;
+  bottom: 50%;
+}
