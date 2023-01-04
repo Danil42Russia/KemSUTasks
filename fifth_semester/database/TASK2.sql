@@ -34,8 +34,8 @@ FROM S_EMP;
 -- Столбец с количеством заказов на товар озаглавьте “Times Ordered”. Отсортируйте данные по номерам заказанных товаров.
 SELECT PRODUCT_ID, COUNT(PRODUCT_ID) AS TIMES_ORDERED
 FROM S_ITEM
-HAVING COUNT(PRODUCT_ID) >= 3
 GROUP BY PRODUCT_ID
+HAVING COUNT(PRODUCT_ID) >= 3
 ORDER BY PRODUCT_ID;
 
 -- 8. Получите список номеров всех регионов с указанием количества отделов в каждом регионе.
