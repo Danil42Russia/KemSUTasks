@@ -57,7 +57,12 @@ FROM S_CUSTOMER CUSTOMER
 GROUP BY CUSTOMER.NAME;
 
 -- 9. Для каждого вида товара, заказанного, по крайней мере, три раза, выведите название этого товара и количество заказов на него.
--- TODO: чо за вид?
+SELECT PRODUCT.NAME AS PRODUCT_NAME, COUNT(PRODUCT_ID) AS TIMES_ORDERED
+FROM S_ITEM ITEM
+     JOIN S_PRODUCT PRODUCT ON ITEM.PRODUCT_ID = PRODUCT.ID
+GROUP BY PRODUCT.ID, PRODUCT.NAME
+HAVING COUNT(PRODUCT_ID) >= 3
+ORDER BY PRODUCT.ID;
 
 -- 10. Для каждого заказа с общим количеством заказанных товаров 100 или более выведите номер заказа и общее количество заказанных товаров в нем.
 -- Если, например, заказ номер 99 содержит заказ на один товар в количестве 30,
@@ -65,5 +70,5 @@ GROUP BY CUSTOMER.NAME;
 SELECT ORD.ID AS ORD_ID, SUM(ITEM.QUANTITY) AS QUANTITY_SUM
 FROM S_ORD ORD
      JOIN S_ITEM ITEM ON ITEM.ORD_ID = ORD.ID
-HAVING SUM(ITEM.QUANTITY) >= 100
-GROUP BY ORD.ID;
+GROUP BY ORD.ID
+HAVING SUM(ITEM.QUANTITY) >= 100;
