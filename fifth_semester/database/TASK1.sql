@@ -33,8 +33,6 @@ SELECT NAME AS COMPANY, ID AS COMPANY_ID, PHONE, CREDIT_RATING AS RATING
 FROM S_CUSTOMER
 WHERE SALES_REP_ID = 11;
 
-
-
 -- 5 Выполните следующие упражнения с таблицей S_EMP.
 -- 5.1 Покажите структуру таблицы.
 -- DESCRIBE S_EMP;
