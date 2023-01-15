@@ -14,4 +14,5 @@
     - Основы машинного обучения и даталогии - [Ссылка](fifth_semester/base_ml)
     - Базы данных - [Ссылка](fifth_semester/database)
     - Разработка Web-приложений - [Ссылка](fifth_semester/web)
+    - Математическая теория рисков - [Ссылка](fifth_semester/math_risk)
 - 6 семестр - TODO
