@@ -15,4 +15,5 @@
     - Базы данных - [Ссылка](fifth_semester/database)
     - Разработка Web-приложений - [Ссылка](fifth_semester/web)
     - Математическая теория рисков - [Ссылка](fifth_semester/math_risk)
+    - Бизнес-аналитика - [Ссылка](fifth_semester/analytics)
 - 6 семестр - TODO
