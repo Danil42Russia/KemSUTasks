@@ -10,8 +10,7 @@ fields <- c(
   "Beauty.",
   "Health.",
   "Baby.",
-  "Pets."
-)
+  "Pets.")
 
 grouped_categories <- orders |>
   dplyr::select(dplyr::all_of(fields)) |>
@@ -27,8 +26,7 @@ fields_name <- c(
   "Красота",
   "Лекарства",
   "Ребенок",
-  "Домашние животные"
-)
+  "Домашние животные")
 
 percentages <- round(grouped_categories / sum(grouped_categories) * 100, 2)
 names <- paste0(fields_name, " (", percentages, "%)")

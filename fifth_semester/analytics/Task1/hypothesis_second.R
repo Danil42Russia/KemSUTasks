@@ -8,8 +8,7 @@ weekday_names <- c(
   "Четверг",
   "Пятница",
   "Суббота",
-  "Воскресенье"
-)
+  "Воскресенье")
 
 bins <- seq(min(weekdays), max(weekdays), l = length(unique(weekdays)) + 1)
 

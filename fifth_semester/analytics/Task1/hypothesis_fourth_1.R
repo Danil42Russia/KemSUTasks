@@ -19,8 +19,7 @@ weekday_names <- c(
   "Четверг",
   "Пятница",
   "Суббота",
-  "Воскресенье"
-)
+  "Воскресенье")
 rownames(data) <- weekday_names
 
 heatmap(data,

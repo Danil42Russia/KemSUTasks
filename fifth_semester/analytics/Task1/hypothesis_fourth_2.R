@@ -2,16 +2,6 @@ library(dplyr)
 
 orders <- read.csv("~/ulabox_orders_with_categories_partials_2017.csv")
 
-weekday_names <- c(
-  "Понедельник",
-  "Вторник",
-  "Среда",
-  "Четверг",
-  "Пятница",
-  "Суббота",
-  "Воскресенье"
-)
-
 data <- orders |>
   dplyr::select(weekday, hour) |>
   dplyr::group_by(weekday, hour) |>
@@ -21,6 +11,15 @@ data <- orders |>
 
 # Рачёт максимального значения по оси X. 50 дполнительное число, что-бы не липло к краям
 maxix <- (round(max(data$count_sales) / 100, 1) * 100) + 50
+
+weekday_names <- c(
+  "Понедельник",
+  "Вторник",
+  "Среда",
+  "Четверг",
+  "Пятница",
+  "Суббота",
+  "Воскресенье")
 
 # Рачёт имени столбца
 names <- paste(weekday_names[data$weekday], "в", data$hour, "часа")
