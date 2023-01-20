@@ -6,7 +6,7 @@ orders <- read.csv("https://gist.githubusercontent.com/Danil42Russia/07a725718af
 data <- orders |>
   dplyr::select(weekday, hour) |>
   dplyr::group_by(weekday, hour) |>
-  dplyr::summarize(count_sales = dplyr::n(), .groups = 'drop') |>
+  dplyr::summarize(count_sales = dplyr::n(), .groups = "drop") |>
   tidyr::pivot_wider(names_from = hour, values_from = count_sales) |>
   dplyr::ungroup() |>
   dplyr::select(!weekday) |>
@@ -25,4 +25,4 @@ rownames(data) <- weekday_names
 heatmap(data,
         Rowv = NA,
         Colv = NA,
-        scale = 'none')
+        scale = "none")

@@ -5,7 +5,7 @@ orders <- read.csv("~/ulabox_orders_with_categories_partials_2017.csv")
 data <- orders |>
   dplyr::select(weekday, hour) |>
   dplyr::group_by(weekday, hour) |>
-  dplyr::summarize(count_sales = dplyr::n(), .groups = 'drop') |>
+  dplyr::summarize(count_sales = dplyr::n(), .groups = "drop") |>
   dplyr::arrange(dplyr::desc(count_sales)) |>
   dplyr::top_n(5)
 
