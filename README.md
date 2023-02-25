@@ -16,4 +16,5 @@
     - Разработка Web-приложений - [Ссылка](fifth_semester/web)
     - Математическая теория рисков - [Ссылка](fifth_semester/math_risk)
     - Бизнес-аналитика - [Ссылка](fifth_semester/analytics)
-- 6 семестр - TODO
+- 6 семестр - [Ссылка](sixth_semester)
+    - Базы данных - [Ссылка](sixth_semester/database)
