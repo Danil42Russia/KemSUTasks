@@ -7,7 +7,7 @@ db.staff.aggregate([
   {
     $group: {
       _id: "$skills",
-      "count_skills": { $count: {} },
+      count_skills: { $count: {} },
     },
   },
   {

@@ -3,11 +3,11 @@ db.staff.aggregate([
   {
     $group: {
       _id: "$level",
-      "avg_salary": { $avg: "$salary" },
+      avg_salary: { $avg: "$salary" },
     },
   },
   {
-    $sort: { "avg_salary": 1 },
+    $sort: { avg_salary: 1 },
   },
   {
     $project: {

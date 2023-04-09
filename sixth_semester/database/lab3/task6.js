@@ -6,7 +6,7 @@ db.staff.aggregate([
   {
     $group: {
       _id: null,
-      "unique_skills": { $addToSet: "$skills" },
+      unique_skills: { $addToSet: "$skills" },
     },
   },
   {

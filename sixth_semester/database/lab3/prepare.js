@@ -1,6 +1,5 @@
 db.staff.insertMany([
   {
-    _id: new ObjectId(),
     title: "Mike Vazovski",
     level: "Junior",
     age: 20,
@@ -8,7 +7,6 @@ db.staff.insertMany([
     salary: 3000,
   },
   {
-    _id: new ObjectId(),
     title: "Lan Vansete",
     level: "Junior",
     age: 30,
@@ -16,7 +14,6 @@ db.staff.insertMany([
     salary: 4000,
   },
   {
-    _id: new ObjectId(),
     title: "Pon Diablo",
     level: "Middle",
     age: 35,
@@ -24,7 +21,6 @@ db.staff.insertMany([
     salary: 6000,
   },
   {
-    _id: new ObjectId(),
     title: "Aasd Dsasd",
     level: "Middle",
     age: 43,
@@ -32,7 +28,6 @@ db.staff.insertMany([
     salary: 7000,
   },
   {
-    _id: new ObjectId(),
     title: "Mike Vazovski",
     level: "Senior",
     age: 50,
@@ -40,7 +35,6 @@ db.staff.insertMany([
     salary: 14000,
   },
   {
-    _id: new ObjectId(),
     title: "Bill Smith",
     level: "Senior",
     age: 50,

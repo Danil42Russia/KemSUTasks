@@ -1,7 +1,7 @@
 // 5. Вывести единый список навыков сотрудников (без повторения) в возрасте от 20 до 30 лет.
 db.staff.aggregate([
   {
-    $match: { "age": { $in: [20, 30] } },
+    $match: { age: { $in: [20, 30] } },
   },
   {
     $unwind: "$skills",
@@ -9,7 +9,7 @@ db.staff.aggregate([
   {
     $group: {
       _id: null,
-      "skills": { $addToSet: "$skills" },
+      skills: { $addToSet: "$skills" },
     },
   },
   {

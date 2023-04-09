@@ -3,7 +3,7 @@
 // уровнем Middle или Senior
 db.staff.aggregate([
   {
-    $match: { "level": { $in: ["Middle", "Senior"] } },
+    $match: { level: { $in: ["Middle", "Senior"] } },
   },
   {
     $unwind: "$skills",
@@ -11,11 +11,11 @@ db.staff.aggregate([
   {
     $group: {
       _id: "$skills",
-      "avg_age": { $avg: "$age" },
+      avg_age: { $avg: "$age" },
     },
   },
   {
-    $sort: { "avg_age": -1 },
+    $sort: { avg_age: -1 },
   },
   {
     $limit: 5,

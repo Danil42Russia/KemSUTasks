@@ -3,7 +3,7 @@ db.staff.aggregate([
   {
     $group: {
       _id: "$level",
-      "min_age": { $min: "$age" },
+      min_age: { $min: "$age" },
     },
   },
   {

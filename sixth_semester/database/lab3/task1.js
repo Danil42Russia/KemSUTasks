@@ -1,12 +1,12 @@
 // 1. Вывести средний возраст сотрудников с уровнем Middle.
 db.staff.aggregate([
   {
-    $match: { "level": { $eq: "Middle" } },
+    $match: { level: { $eq: "Middle" } },
   },
   {
     $group: {
       _id: null,
-      "avg_age": { $avg: "$age" },
+      avg_age: { $avg: "$age" },
     },
   },
   {

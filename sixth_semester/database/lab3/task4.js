@@ -1,12 +1,12 @@
 // 4. Вывести количество сотрудников, получающих зарплату выше 7000.
 db.staff.aggregate([
   {
-    $match: { "salary": { $gt: 7000 } },
+    $match: { salary: { $gt: 7000 } },
   },
   {
     $group: {
       _id: null,
-      "count_salary": { $count: {} },
+      count_salary: { $count: {} },
     },
   },
   {
