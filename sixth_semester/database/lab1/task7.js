@@ -12,8 +12,8 @@ db.students.insertOne({
   study_direction: "Прикладная математика и информатика",
   group: 211,
   list_foreign_languages: [
-    "Английский",
     "Китайский",
+    "Немецкий"
   ],
 });
 db.students.insertOne({
@@ -26,6 +26,6 @@ db.students.insertOne({
   group: 181,
   list_foreign_languages: [
     "Английский",
-    "Португальский",
+    "Немецкий"
   ],
 });

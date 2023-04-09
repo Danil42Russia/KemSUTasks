@@ -14,7 +14,7 @@ db.students.insertMany([
     study_direction: "Прикладная математика и информатика",
     group: 191,
     list_foreign_languages: [
-      "Английский",
+      "Немецкий"
     ],
     list_learned_disciplines: [
       {
@@ -48,8 +48,7 @@ db.students.insertMany([
     study_direction: "Компьютерная безопасность",
     group: 182,
     list_foreign_languages: [
-      "Английский",
-      "Испанский",
+      "Французский"
     ],
     list_learned_disciplines: [
       {
@@ -93,8 +92,8 @@ db.students.insertMany([
     study_direction: "Прикладная математика и информатика",
     group: 201,
     list_foreign_languages: [
-      "Английский",
-      "Арабский",
+      "Китайский",
+      "Немецкий"
     ],
     list_learned_disciplines: [
       {
@@ -138,8 +137,8 @@ db.students.insertMany([
     study_direction: "Прикладная математика и информатика",
     group: 181,
     list_foreign_languages: [
-      "Английский",
-      "Арабский",
+      "Французский",
+      "Немецкий"
     ],
     list_learned_disciplines: [
       {
