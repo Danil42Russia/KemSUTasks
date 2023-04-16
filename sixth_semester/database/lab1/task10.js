@@ -8,11 +8,11 @@ db.students.find();
 
 // 10.2. Список студентов с заданной фамилией и курсом.
 db.students.find({
-  "last_name": "Громов",
-  "course": 4,
+  last_name: "Громов",
+  course: 4,
 });
 
 // 10.3. Список студентов изучающих одновременно два заданных языка.
 db.students.find({
-  "list_foreign_languages": { $size: 2 },
+  list_foreign_languages: { $size: 2 },
 }).pretty();
