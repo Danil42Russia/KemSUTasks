@@ -2,9 +2,7 @@
 db.Emps.aggregate([
   {
     $match: {
-      "dept.number": {
-        $in: [31, 42, 50],
-      },
+      "dept.number": { $in: [31, 42, 50] },
       salary: {
         $not: {
           $gt: 1000,

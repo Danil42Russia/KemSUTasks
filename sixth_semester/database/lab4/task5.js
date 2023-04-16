@@ -13,7 +13,7 @@ db.Emps.aggregate([
   {
     $project: {
       _id: 0,
-      "title": "$_id",
+      title: "$_id",
       "max(salary)": "$min_salary",
       "min(salary)": "$min_salary",
     },

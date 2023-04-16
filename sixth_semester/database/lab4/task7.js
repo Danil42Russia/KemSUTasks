@@ -8,10 +8,10 @@ db.Emps.aggregate([
     },
   },
   {
-    $match: { "min_salary": { $lte: 1000 } },
+    $match: { min_salary: { $lte: 1000 } },
   },
   {
-    $sort: { "min_salary": 1 },
+    $sort: { min_salary: 1 },
   },
   {
     $project: {

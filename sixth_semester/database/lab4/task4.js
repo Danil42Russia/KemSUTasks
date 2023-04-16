@@ -18,6 +18,6 @@ db.Emps.aggregate([
     },
   },
   {
-    $sort: { "months": 1 },
+    $sort: { months: 1 },
   },
 ]);

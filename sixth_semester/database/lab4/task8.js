@@ -7,11 +7,11 @@ db.Ords.aggregate([
   {
     $group: {
       _id: "$products.product._id",
-      "product_count": { $count: {} },
+      product_count: { $count: {} },
     },
   },
   {
-    $match: { "product_count": { $gte: 3 } },
+    $match: { product_count: { $gte: 3 } },
   },
   {
     $project: {

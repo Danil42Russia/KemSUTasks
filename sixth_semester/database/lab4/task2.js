@@ -4,8 +4,8 @@ db.Emps.aggregate([
   {
     $match: {
       start_date: {
-        $gt: new Date("1990-05-15"),
-        $lt: new Date("1991-05-27"),
+        $gte: new Date("1990-05-14"),
+        $lte: new Date("1991-05-26"),
       },
     },
   },

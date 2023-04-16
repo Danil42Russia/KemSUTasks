@@ -9,7 +9,7 @@ db.Ords.aggregate([
   {
     $project: {
       _id: 0,
-      "customer_id": "$_id",
+      customer_id: "$_id",
       "count(ord_id)": "$count_ord",
     },
   },

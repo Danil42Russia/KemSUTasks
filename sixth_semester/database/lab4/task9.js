@@ -9,7 +9,7 @@ db.Depts.aggregate([
   {
     $project: {
       _id: 0,
-      "region_id": "$_id",
+      region_id: "$_id",
       "count(region_id)": "$count_region",
     },
   },
