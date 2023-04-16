@@ -23,7 +23,7 @@ db.staff.aggregate([
   {
     $project: {
       _id: 0,
-      "skill_name": "$_id",
+      skill_name: "$_id",
       "avg(age)": "$avg_age",
     },
   },

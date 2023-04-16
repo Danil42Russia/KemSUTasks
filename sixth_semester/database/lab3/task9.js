@@ -9,7 +9,7 @@ db.staff.aggregate([
   {
     $project: {
       _id: 0,
-      "level": "$_id",
+      level: "$_id",
       "min(age)": "$min_age",
     },
   },

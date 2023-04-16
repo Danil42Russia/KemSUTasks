@@ -12,7 +12,7 @@ db.staff.aggregate([
   {
     $project: {
       _id: 0,
-      "level": "$_id",
+      level: "$_id",
       "avg(salary)": "$avg_salary",
     },
   },

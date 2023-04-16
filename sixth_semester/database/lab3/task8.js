@@ -13,7 +13,7 @@ db.staff.aggregate([
   {
     $project: {
       _id: 0,
-      "skill_name": "$_id",
+      skill_name: "$_id",
       "count(skills)": "$count_skills",
     },
   },
