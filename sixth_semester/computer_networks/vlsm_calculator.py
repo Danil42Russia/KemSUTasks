@@ -66,10 +66,10 @@ def count_ip_address_by_prefix(prefix: int) -> int:
 
 def next_pow2(number: int) -> int:
     """Округляет число до ближайшего числа, которое является степенью двойки"""
-    res = 1
-    while res < number:
-        res *= 2
-    return res
+    power = 1
+    while power < number:
+        power *= 2
+    return power
 
 
 def subnet_count_to_bit(subnets_count: int) -> int:
@@ -111,6 +111,7 @@ def vlsm(network: str, required_subnets: dict[str, int]) -> tuple[dict, dict, di
     selected_subnets_size = {name: next_pow2(size) for name, size in required_subnets_size.items()}
 
     ready_subnets: dict[str, str] = {}
+    unshared_subnets: list[tuple[str, int]] = []
     free_subnets: dict[int, list[str]] = {}
 
     # Группируем по выделенному размеру на подсесть
@@ -135,33 +136,40 @@ def vlsm(network: str, required_subnets: dict[str, int]) -> tuple[dict, dict, di
 
         # Первые части отдаём подсетям для которых делали разделение
         for subnets_name in grouped_selected_subnets[subnet_size]:
+            if len(split_subnets) == 0:
+                unshared_subnets.append((subnets_name, subnet_size))
+                continue
+
             # Если при разделение на подсети у нас есть свободные подсети, то забираем их
+            ready_subnets[subnets_name] = split_subnets.pop(0)
+
+            # Если что-то остаётся при разделении, то забираем для следующей подсети
             if len(split_subnets) != 0:
-                ready_subnets[subnets_name] = split_subnets.pop(0)
+                this_split_subnet = split_subnets.pop(0)
 
-                # Если что-то остаётся при разделении, то забираем для следующей подсети
-                if len(split_subnets) != 0:
-                    this_split_subnet = split_subnets.pop(0)
+            # Свободные подсети, которые остались при разделение
+            free_subnets[subnet_size] = split_subnets
 
-                # Свободные подсети, которые остались при разделение
-                free_subnets[subnet_size] = split_subnets
-            else:
-                # Если у нас нет свободных подсетей, то идём к предыдущей подсети по размеру и пытаемся поделить её
-                repeat_count, repeat_subnet = 0, []
-                for i in reversed(grouped_selected_subnets_size):
-                    if len(free_subnets[i]) != 0:
-                        repeat_subnet.append(i)
-                        break
-                    repeat_subnet.append(i)
-                    repeat_count += 1
+    # Если у нас нет свободных подсетей, то идём к предыдущей подсети по размеру и пытаемся поделить её
+    # ВНИМАНИЕ: делает это он, не оптимально, при данном подходе остаются "дырки" в подсетях.
+    # Скорее всего надо делить все предыдущие, подсети до размера подсети для которой делается разделение
+    # находить самое ближайшее к уже разделённым.
+    # И потом возвращать разделённые подсети в прежнее до разделения состояние
+    for subnets_name, subnet_size in unshared_subnets:
+        repeat_count, repeat_subnet = 0, []
+        for selected_subnet_size in reversed(grouped_selected_subnets_size):
+            repeat_subnet.append(selected_subnet_size)
+            if len(free_subnets[selected_subnet_size]) != 0:
+                break
+            repeat_count += 1
 
-                repeat_subnet.reverse()
-                for i in range(repeat_count):
-                    first_free_subnet = free_subnets[repeat_subnet[i]].pop(0)
-                    bits = subnet_bits[repeat_subnet[i + 1]]
-                    free_subnets[repeat_subnet[i + 1]] = split_subnet(first_free_subnet, bits)
+        repeat_subnet.reverse()
+        for i in range(repeat_count):
+            first_free_subnet = free_subnets[repeat_subnet[i]].pop(0)
+            bits = subnet_bits[repeat_subnet[i + 1]]
+            free_subnets[repeat_subnet[i + 1]] = split_subnet(first_free_subnet, bits)
 
-                ready_subnets[subnets_name] = free_subnets[subnet_size].pop(0)
+        ready_subnets[subnets_name] = free_subnets[subnet_size].pop(0)
 
     free_subnets[split_subnet_size].append(this_split_subnet)
     return ready_subnets, free_subnets, selected_subnets_size
