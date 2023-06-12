@@ -66,6 +66,9 @@ def count_ip_address_by_prefix(prefix: int) -> int:
 
 def next_pow2(number: int) -> int:
     """Округляет число до ближайшего числа, которое является степенью двойки"""
+    if number == 0:
+        return 0
+
     power = 1
     while power < number:
         power *= 2
