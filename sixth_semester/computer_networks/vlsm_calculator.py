@@ -5,8 +5,10 @@ import textwrap
 
 def parse_net(net: str) -> tuple[str, int]:
     """Делит на сеть на адрес и префикс"""
-    ip, mask = net.split("/")
+    result = net.split("/")
+    assert len(result) == 2, "Неверный формат сети"
 
+    ip, mask = result
     return ip, int(mask)
 
 
@@ -78,7 +80,7 @@ def next_pow2(number: int) -> int:
 def subnet_count_to_bit(subnets_count: int) -> int:
     """Высчитывает сколько нужно занять бит от хоста"""
     res = math.log2(subnets_count)
-    assert int(res) == res, "Что-то не так с количеством"
+    assert res.is_integer(), f"Размер подсети '{subnets_count}', не степень 2"
 
     return int(res)
 
