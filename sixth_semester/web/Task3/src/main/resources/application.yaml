@@ -1,0 +1,16 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost/backend"
+    username: "backend"
+    password: "backend"
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE
