@@ -19,3 +19,4 @@
 - 6 семестр - [Ссылка](sixth_semester)
     - Базы данных - [Ссылка](sixth_semester/database)
     - Компьютерные сети - [Ссылка](sixth_semester/computer_networks)
+    - Разработка Web-приложений - [Ссылка](sixth_semester/web)
